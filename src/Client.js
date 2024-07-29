@@ -8,7 +8,7 @@ function Client() {
     const [clients, setClient] = useState();
     
     useEffect(()=>{
-      axios.get(`${process.env.REACT_APP_HOST}/fmi/odata/v4/${process.env.REACT_APP_DATABASE}/${process.env.REACT_APP_TABLE}`,{
+      axios.get(`/fmi/odata/v4/${process.env.REACT_APP_DATABASE}/${process.env.REACT_APP_TABLE}`,{
           method: "GET",
           headers: {
               "Content-Type": "application/json",
