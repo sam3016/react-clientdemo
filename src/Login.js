@@ -14,7 +14,7 @@ const Login = () => {
         auth.loginAction(input);
         return;
     }
-    alert("please provide a valid username or password!");
+    alert("Please provide a valid username or password!");
   };
 
   const handleInput = (e) => {

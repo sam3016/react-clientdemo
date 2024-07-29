@@ -73,9 +73,11 @@ function Client() {
       prepareRow,
     } = useTable({ columns, data })
 
+    if (!data) return <p className="text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">There is something wrong, please try again later.</p>
+
     return (
         <div className="container">
-          <nav className="flex flex-row justify-end">
+          <nav className="flex flex-row justify-end pt-5">
             <button id="logout" onClick={() => auth.logOut()} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Logout</button>
           </nav>
         <div>
@@ -100,7 +102,7 @@ function Client() {
             {rows.map(row => {
               prepareRow(row)
               return (
-                <tr {...row.getRowProps()} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                <tr {...row.getRowProps()} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700" key={row.id}>
                   {row.cells.map(cell => {
                     return (
                       <td
